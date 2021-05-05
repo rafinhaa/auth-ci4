@@ -11,7 +11,7 @@
 </h4>
 
 ## 🔖 About
-O auth-ci4 é uma aplicação criado com codeigniter 4, permite a autenticação de um usuário. Baseado no vídeo 
+O auth-ci4 é uma aplicação criado com codeigniter 4, permite a autenticação de um usuário. Baseado no vídeo [CodeIgniter 4 Authentication](https://www.youtube.com/watch?v=vKFcpQo-h-Q)
 
 ## 🚀 Technologies
 - [PHP](https://php.net/)
@@ -40,10 +40,16 @@ php spark migrate
 - Senha:   password
 
 ## 📄 Changelog
-##### v0.0.1
+##### v0.0.2
+- Create migration users
+- Create Controller auth
+- Create View login
+- Downloaded bootstrap files in public/bootstrap
+
+##### v0.0.1 -> v0.0.1b
 - Update README.md
 
 ## 📝 License
-[MIT](LICENSE.txt)
+[MIT](LICENSE)
 
 **Free Software, Hell Yeah!**
