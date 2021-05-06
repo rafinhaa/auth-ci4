@@ -16,20 +16,23 @@
                     <?= csrf_field() ?>
                     <div class="form-group">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" placeholder="Name" value="<?= set_value('name') ?>">
                         <span class="text-danger"><?= isset($validation) ? display_error($validation, 'name') : '' ?></span>            
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter your email address">                    
+                        <input type="text" class="form-control" name="email" placeholder="Enter your email address" value="<?= set_value('email') ?>">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>                  
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter your password"> 
+                        <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password') : '' ?></span>
                     </div>
                     <div class="form-group">
                         <label for="">Confirm Password</label>
-                        <input type="password" class="form-control" name="cpassword" placeholder="Enter confirm password"> 
+                        <input type="password" class="form-control" name="cpassword" placeholder="Enter confirm password">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'cpassword') : '' ?></span>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block" type="submit">Sign Up</button>

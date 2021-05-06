@@ -18,7 +18,7 @@ class Users extends Migration
 				'name' => [
 				'type' => 'TEXT',
 			],
-				'emai' => [
+				'email' => [
 				'type' => 'TEXT',
 			],
 				'password' => [
