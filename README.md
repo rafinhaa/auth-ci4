@@ -40,12 +40,17 @@ php spark migrate
 - Senha:   password
 
 ## 📄 Changelog
+##### v0.0.3
+- Create method register in Controller auth
+- Create View register
+- Create method save in Controller auth
+- Create Model UsersModel
+- Create Helper Form_helper
 ##### v0.0.2
 - Create migration users
 - Create Controller auth
 - Create View login
 - Downloaded bootstrap files in public/bootstrap
-
 ##### v0.0.1 -> v0.0.1b
 - Update README.md
 
