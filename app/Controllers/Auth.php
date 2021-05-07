@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Libraries\Hash;
 
 class Auth extends BaseController
 {
@@ -67,7 +68,7 @@ class Auth extends BaseController
             $values = [
                 'name'=> $name,
                 'email'=> $email,
-                'password'=> $password,
+                'password'=> Hash::make($password),
             ];
 
             $usersModel = new \App\Models\UsersModel();
@@ -78,6 +79,31 @@ class Auth extends BaseController
             }else{
                 return redirect()->to('register')->with('success','You are now registred, please login in');
             }
+        }
+    }
+    public function check(){
+        $validation = $this->validate([
+            'email' => [
+                'rules' => 'required|valid_email|is_not_unique[users.email]',
+                'errors' => [
+                    'required' => 'Email is required',
+                    'is_not_unique' => 'This email is not registred',
+                    'valid_email' => 'Enter a valid email address',
+                ],
+            ],
+            'password' => [
+                'rules' => 'required|min_length[5]|max_length[12]',
+                'errors' => [
+                    'required' => 'Your password is required', 
+                    'min_length' => 'Password must have atleast 5 characters',
+                    'max_length' => 'Password must not have characters than 12 in length',
+                ],                
+            ],
+        ]);
+        if(!$validation){
+            return view('auth/login',['validation'=>$this->validator]);
+        }else{
+            echo 'ok';
         }
     }
 }

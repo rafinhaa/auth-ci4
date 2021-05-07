@@ -14,6 +14,12 @@
                 <h4>Sign Up</h4><hr>
                 <form action="<?= base_url('/auth/save') ?>" method="post">
                     <?= csrf_field() ?>
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="alert alert-danger"><?= session()->getFlashdata('fail') ?></div>
+                    <?php endif ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+                    <?php endif ?>
                     <div class="form-group">
                         <label for="">Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Name" value="<?= set_value('name') ?>">
