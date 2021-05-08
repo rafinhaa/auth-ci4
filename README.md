@@ -40,6 +40,9 @@ php spark migrate
 - Senha:   password
 
 ## 📄 Changelog
+##### v0.0.6
+- Finished logic to login user in method check 
+- Create Controller dashboard
 ##### v0.0.5
 - Create message for successful or fail registration in View register
 - Create Library hash

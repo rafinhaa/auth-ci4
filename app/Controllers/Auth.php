@@ -103,7 +103,19 @@ class Auth extends BaseController
         if(!$validation){
             return view('auth/login',['validation'=>$this->validator]);
         }else{
-            echo 'ok';
+            $email = $this->request->getpost('email');
+            $password = $this->request->getpost('password');
+            $usersModel = new \App\Models\UsersModel();
+            $user_info = $usersModel->where('email',$email)->first();
+            $check_password = Hash::check($password, $user_info['password']);
+            if(!$check_password){
+                session()->setFlashdata('fail','Incorrect password');                
+                return redirect()->to('/auth')->withInput();
+            }else{
+                $user_id = $user_info['id'];
+                session()->set('loggedUser', $user_id);
+                return redirect()->to('dasboard');
+            }
         }
     }
 }
