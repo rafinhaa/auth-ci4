@@ -2,9 +2,27 @@
 
 namespace App\Controllers;
 
-class Dasboard extends BaseController
+class Dashboard extends BaseController
 {
     public function index(){
-        return view('dasboard/index');
+        $usersModel = new \App\Models\UsersModel();
+        $loggedUserID = session()->get('loggedUser');
+        $userInfo = $usersModel->find($loggedUserID);
+        $data = [
+            'title' => 'Dashboard',
+            'userInfo' => $userInfo,
+        ];
+        return view('dashboard/index',$data);
+    }
+
+    public function profile(){
+        $usersModel = new \App\Models\UsersModel();
+        $loggedUserID = session()->get('loggedUser');
+        $userInfo = $usersModel->find($loggedUserID);
+        $data = [
+            'title' => 'Profile',
+            'userInfo' => $userInfo,
+        ];
+        return view('dashboard/profile',$data);
     }
 }

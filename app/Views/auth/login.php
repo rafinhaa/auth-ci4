@@ -12,7 +12,7 @@
         <div class="row" style="margin-top: 45px">
             <div class="col-md-4 col-md-offset-4">
                 <h4>Sign In</h4><hr>
-                <form action="<?= base_url('/auth/check') ?>" method="post">
+                <form action="<?= base_url('/auth/check') ?>" method="post" autocomplete="off">
                     <?= csrf_field() ?>
                     <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                         <div class="alert alert-danger"><?= session()->getFlashdata('fail') ?></div>

@@ -9,9 +9,16 @@
       <a href="#-license">License</a>
   </p>
 </h4>
+<h1 align="center">
+  <img width="600" style="border-radius: 10px" height="auto" alt="Screenshot" title="Screenshot" src="docs/images/Screenshot_1.png" />
+  <div style="display: flex; flex-direction: row;">
+    <img width="400" style="border-radius: 10px" height="auto" alt="Screenshot" title="Screenshot" src="docs/images/Screenshot_2.png" />
+    <img width="400" style="border-radius: 10px" height="auto" alt="Screenshot" title="Level Up" src="docs/images/Screenshot_3.png" />
+  <div>
+</h1>
 
 ## 🔖 About
-O auth-ci4 é uma aplicação criado com codeigniter 4, permite a autenticação de um usuário. Baseado no vídeo [CodeIgniter 4 Authentication](https://www.youtube.com/watch?v=vKFcpQo-h-Q)
+O auth-ci4 é uma aplicação criado com codeigniter 4, permite o registro e a autenticação de usuários. Baseado no vídeo [CodeIgniter 4 Authentication](https://www.youtube.com/watch?v=vKFcpQo-h-Q)
 
 ## 🚀 Technologies
 - [PHP](https://php.net/)
@@ -23,15 +30,17 @@ O auth-ci4 é uma aplicação criado com codeigniter 4, permite a autenticação
 git clone https://github.com/rafinhaa/auth-ci4.git
 cd auth-ci4
 ```
-
 #### Install dependencies
 ```bash
 composer install
 ```
-
 #### Execute migrations
 ```bash
 php spark migrate
+```
+#### Execute seeds
+```bash
+php spark db:seed UsersSeeder
 ```
 
 ## ℹ️ Info
@@ -40,6 +49,18 @@ php spark migrate
 - Senha:   password
 
 ## 📄 Changelog
+##### v0.0.7
+- Create View dashboard with name index
+- Finish logic in View dashboard
+- Create Filter AuthCheckFilter
+- Add filter alias for AuthCheckFilter to AuthCheck
+- Add route group form Filter AuthCheck
+- Create method profile in Controller dashboard
+- Create View profile
+- Create Filter AlreadyLoggedInFilter
+- Add filter alias for AlreadyLoggedInFilter to AlreadyLoggedIn
+- Add route group form Filter AlreadyLoggedIn
+- Update README.md
 ##### v0.0.6
 - Finished logic to login user in method check 
 - Create Controller dashboard

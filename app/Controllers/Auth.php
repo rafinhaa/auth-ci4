@@ -77,7 +77,12 @@ class Auth extends BaseController
                 return redirect()->back()->with('fail','something went wrong');
                 //return redirect()->to('register')->with('fail','something went wrong');
             }else{
-                return redirect()->to('register')->with('success','You are now registred, please login in');
+                //redirect user to login page
+                //return redirect()->to('register')->with('success','You are now registred, please login in');
+                //redirect user to dashboard
+                $last_id = $usersModel->insertID();
+                session()->set('loggedUser', $last_id);
+                return redirect()->to('/dashboard');
             }
         }
     }
@@ -114,8 +119,14 @@ class Auth extends BaseController
             }else{
                 $user_id = $user_info['id'];
                 session()->set('loggedUser', $user_id);
-                return redirect()->to('dasboard');
+                return redirect()->to('/dashboard');
             }
+        }
+    }
+    public function logout() {
+        if(session()->has('loggedUser')){
+            session()->remove('loggedUser');
+            return redirect()->to('/auth?access=out')->with('fail','You are logged out!');
         }
     }
 }
